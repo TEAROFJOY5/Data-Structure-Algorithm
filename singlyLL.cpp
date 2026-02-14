@@ -50,6 +50,7 @@ node* CreatLL(){ //This will create Singly Linked List
         }
     }
  }
+    delete newNode;
  return head;
 }
 
