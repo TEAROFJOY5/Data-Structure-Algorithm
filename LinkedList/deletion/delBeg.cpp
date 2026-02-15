@@ -53,20 +53,6 @@ node* CreatLL(){ //This will create Singly Linked List
  
  return head;
 }
-
-// int count(struct node* head)
-// {
-//     int x = 0;
-//     struct node* temp;
-//     temp = head;
-//     while(temp!= nullptr)
-//     {
-//         x++;
-//         temp = temp -> next;
-//     }
-//     return x;
-// }
-
 void displayLL(struct node* head) //To display Singly Linked List.
 {
    struct node* temp;
@@ -79,7 +65,7 @@ void displayLL(struct node* head) //To display Singly Linked List.
    }
 cout<<endl;
 }
-node* delBeg(struct node* head)
+node* delBeg(struct node* head) // Delete from beginning
 {
     struct node* temp;
     temp = head;
@@ -90,9 +76,6 @@ node* delBeg(struct node* head)
 int main()
 {
    node* head = CreatLL(); //Create only 3 elements list.
-//    int length = count(head);
-
-//     cout<<"The count of the LinkedList is "<<length<<endl;
     head = delBeg(head);
     displayLL(head);
     return 0;
