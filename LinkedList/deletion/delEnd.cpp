@@ -53,20 +53,6 @@ node* CreatLL(){ //This will create Singly Linked List
  
  return head;
 }
-
-// int count(struct node* head)
-// {
-//     int x = 0;
-//     struct node* temp;
-//     temp = head;
-//     while(temp!= nullptr)
-//     {
-//         x++;
-//         temp = temp -> next;
-//     }
-//     return x;
-// }
-
 void displayLL(struct node* head) //To display Singly Linked List.
 {
    struct node* temp;
