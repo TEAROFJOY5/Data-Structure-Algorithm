@@ -4,12 +4,12 @@ using namespace std;
 class Node {
 public:
     int data;
-    Node* next;
+    Node* link;
 
 
     Node() {
         data = 0;
-        next = nullptr;
+        link = nullptr;
   
     }
 };
@@ -17,7 +17,7 @@ Node* top = nullptr;
 void push(int value) {
     Node* newNode = new Node();
     newNode->data = value;
-    newNode->next = top;
+    newNode->link = top;
     top = newNode;
 }
 void pop() {
@@ -26,7 +26,7 @@ void pop() {
         return;
     }
     Node* temp = top;
-    top = top->next;
+    top = top->link;
     delete temp;
 }
 void display() {
@@ -38,7 +38,7 @@ void display() {
     cout << "Stack elements: ";
     while (temp != nullptr) {
         cout << temp->data << " ";
-        temp = temp->next;
+        temp = temp->link;
     }
     cout << endl;
 }
