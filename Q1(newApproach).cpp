@@ -38,13 +38,13 @@ void sort() {
 
     Node* prev1 = NULL;
     Node* curr1 = head;
-
+    //Outer loop (curr1): Selects a node whose position we are examining.
     while (curr1 != NULL) {
         Node* prev2 = curr1;
         Node* curr2 = curr1->next;
 
         while (curr2 != NULL) {
-
+    //Inner loop (curr2): Moves through the remaining nodes to find a larger score.
             if (curr1->score < curr2->score) {
 
                 // curr1 and curr2 are adjacent
