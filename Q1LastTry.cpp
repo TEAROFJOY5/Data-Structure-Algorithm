@@ -111,10 +111,11 @@ int main() {
     insert("Japan", 36);
     insert("Germany", 70);
     insert("Spain", 45);
-
+    insert("China", 100);
+    display();
+    cout<<"After Sort"<<endl;
     sort();
     display();
 
     return 0;
 }
-
