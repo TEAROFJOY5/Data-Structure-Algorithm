@@ -19,49 +19,68 @@ Expected Output:
 Withdrawal Possible
 Notes: 1000 x 1, 500 x 1, 100 x 1, 50 x 1
 */
+
 #include <iostream>
 using namespace std;
 
-bool withdraw(int notes[], int denominations[], int index, int amount) {
-    if (amount == 0) {
-        return true;
-    }
+bool withdraw(int notes[], int denominations[], int used[],
+              int index, int amount);
 
-    if (index == 4 || amount < 0) {
+bool tryNotes(int notes[], int denominations[], int used[],
+              int index, int amount, int count) {
+    if (count < 0)
         return false;
-    }
 
-    for (int i = notes[index]; i >= 0; i--) {
-        if (withdraw(notes, denominations, index + 1,
-                     amount - i * denominations[index])) {
-            notes[index] = i;
+    if (count * denominations[index] <= amount) {
+        used[index] = count;
+
+        if (amount - count * denominations[index] == 0) {
+            for (int i = index + 1; i < 4; i++)
+                used[i] = 0;
             return true;
         }
+
+        if (index < 3 &&
+            withdraw(notes, denominations, used, index + 1,
+                     amount - count * denominations[index]))
+            return true;
     }
 
-    return false;
+    used[index] = 0;
+
+    return tryNotes(notes, denominations, used, index,
+                    amount, count - 1);
+}
+
+bool withdraw(int notes[], int denominations[], int used[],
+              int index, int amount) {
+    if (amount == 0)
+        return true;
+
+    if (index == 4 || amount < 0)
+        return false;
+
+    return tryNotes(notes, denominations, used, index,
+                    amount, notes[index]);
 }
 
 int main() {
     int denominations[4] = {1000, 500, 100, 50};
     int notes[4] = {2, 1, 3, 2};
+    int used[4] = {0, 0, 0, 0};
     int amount = 1650;
 
-    int used[4] = {0, 0, 0, 0};
-
-    if (withdraw(used, denominations, 0, amount)) {
+    if (withdraw(notes, denominations, used, 0, amount)) {
         cout << "Withdrawal Possible" << endl;
-        cout << "Notes: ";
 
-        for (int i = 0; i < 4; i++) {
-            cout << denominations[i] << " x " << used[i];
-            if (i < 3) {
-                cout << ", ";
-            }
-        }
+        for (int i = 0; i < 4; i++)
+            cout << denominations[i] << " x "
+                 << used[i] << endl;
     } else {
         cout << "Withdrawal Not Possible";
     }
 
     return 0;
 }
+
+
