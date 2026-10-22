@@ -23,7 +23,6 @@ struct Node {
 
 Node* root = NULL;
 
-// Insert a new patient
 Node* insert(Node* root, int id, string name, int age, string category) {
     if (root == NULL) {
         return new Node(id, name, age, category);
