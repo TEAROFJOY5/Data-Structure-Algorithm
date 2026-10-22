@@ -51,7 +51,6 @@ Node* findMin(Node* root) {
     return root;
 }
 
-// Search for a patient
 Node* search(Node* root, int id) {
     if (root == NULL || root->data == id)
         return root;
@@ -62,7 +61,6 @@ Node* search(Node* root, int id) {
     return search(root->right, id);
 }
 
-// Delete a patient (all three cases)
 Node* deleteNode(Node* root, int id) {
     if (root == NULL)
         return NULL;
@@ -81,14 +79,12 @@ Node* deleteNode(Node* root, int id) {
             return temp;
         }
 
-        // Case 2: No right child
         if (root->right == NULL) {
             Node* temp = root->left;
             delete root;
             return temp;
         }
 
-        // Case 3: Two children
         Node* temp = findMin(root->right);
 
         root->data = temp->data;
@@ -102,7 +98,6 @@ Node* deleteNode(Node* root, int id) {
     return root;
 }
 
-// Display one patient
 void displayPatient(Node* p) {
     cout << "Patient ID: " << p->data
          << " | Name: " << p->name
@@ -119,8 +114,6 @@ void inorder(Node* root) {
     displayPatient(root);
     inorder(root->right);
 }
-
-// Display patients within a given ID range
 void rangeSearch(Node* root, int low, int high) {
     if (root == NULL)
         return;
