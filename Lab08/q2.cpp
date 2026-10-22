@@ -1,6 +1,17 @@
+/*
 Task 2: 
 An online retailer sells thousands of products, and its warehouse team needs to find any product within moments using its unique product ID. Each product has an ID, a name, a unit price, and a quantity currently in stock. The retailer’s technical team has chosen a Binary Search Tree ordered by product ID. Price and quantity travel along with each record but do not decide its position.
 The inventory changes constantly. New products arrive from suppliers, discontinued products are withdrawn, stock counts change with every shipment and sale, and prices are revised during promotions and seasonal sales. The warehouse employees will use a menu-driven C++ program that lets them build the inventory from keyboard input and then manage it throughout the day. Rebuilding the entire inventory after every small change would be far too slow, so the program must let employees add products, remove products, search by ID, update stock, and update prices while keeping the existing inventory in place.
 Management has several reporting needs. They want a full listing of the inventory sorted by product ID. They want to list all products whose IDs fall within a range, for example when one supplier’s products occupy a block of IDs. They also want a list of products that are currently out of stock so reordering can begin, and the total value of everything in the warehouse, calculated as unit price multiplied by quantity for each product and summed up. If a price changes, the total value reported afterwards must reflect it. Because the catalog is so large, the range lookup must take advantage of the tree’s organisation instead of examining every product.
 The finance team has one more question that the program’s documentation must answer. Employees will sometimes want to find all products priced between two amounts. Students must mention in comments, how the cost of finding a product by ID compares with the cost of finding products by price in this particular tree, and why the two behave differently.
+
+
+Simple Wording
+/////////////////
+
+An online store manages thousands of products, and its inventory system needs to retrieve products efficiently by their unique product IDs. Each BST node stores a product ID, product name, unit price, and available quantity. The tree must be ordered by product ID, while the price and quantity are stored as additional information. The store receives new products, removes discontinued products, changes stock quantities, and updates prices regularly. Your program must build the inventory tree from user input and provide a menu through which an employee can manage the products without rebuilding the entire tree after every operation. Implement product insertion, deletion, ID-based searching, stock updates, and price updates. The program must also list products whose IDs fall within a specified range, identify products with zero stock, calculate the total inventory value using `price × quantity`, and display products in ascending order of product ID. A price update must not require deleting and reinserting the node because price is not the BST key; however, the updated price must be reflected in the inventory valuation. Your range-search implementation must use the BST ordering property to skip subtrees that cannot contain matching product IDs. Clearly distinguish between the complexity of searching by product ID and finding products by price, since the tree is not ordered by price.
+
+*/
+
+
 
