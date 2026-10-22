@@ -4,7 +4,7 @@
 using namespace std;
 
 struct Node {
-    int data;           // Patient ID
+    int data;           
     string name;
     int age;
     string category;
@@ -114,7 +114,6 @@ void displayPatient(Node* p) {
          << endl;
 }
 
-// Display patients in ascending ID order
 void inorder(Node* root) {
     if (root == NULL)
         return;
@@ -139,7 +138,6 @@ void rangeSearch(Node* root, int low, int high) {
         rangeSearch(root->right, low, high);
 }
 
-// Count total patients
 int countPatients(Node* root) {
     if (root == NULL)
         return 0;
@@ -151,7 +149,7 @@ int countPatients(Node* root) {
 int main() {
     int input = 1;
 
-    // Initial patient records
+
     root = insert(root, 450, "Patient450", 45, "High");
     root = insert(root, 250, "Patient250", 35, "Medium");
     root = insert(root, 650, "Patient650", 60, "High");
@@ -164,7 +162,7 @@ int main() {
     root = insert(root, 600, "Patient600", 55, "High");
 
     while (input != 0) {
-        cout << "\n===== HOSPITAL PATIENT SYSTEM =====\n";
+     
         cout << "1. Register New Patient\n";
         cout << "2. Search Patient by ID\n";
         cout << "3. Update Emergency Category\n";
