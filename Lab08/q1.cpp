@@ -40,8 +40,6 @@ Node* insert(Node* root, int id, string name, int age, string category) {
 
     return root;
 }
-
-// Find minimum node
 Node* findMin(Node* root) {
     if (root == NULL)
         return NULL;
