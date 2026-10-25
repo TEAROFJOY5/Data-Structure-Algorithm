@@ -1,4 +1,10 @@
 /*
+Task 4: The given Quick Sort always uses the right-most element as pivot.
+Run it on the already sorted array {10, 20, 30, 40, 50} and on {40, 20, 10, 50, 30}. Using the counters from Task 1, compare the number of comparisons and partition calls. Also track the maximum recursion depth (increase a counter when entering quickSort, decrease it when leaving).
+Explain in your own comments (in programs), using what each partition produces for the sorted array, why this input is the worst case.
+The manual says "Choose any index value as pivot". Without changing the partition loop, modify quickSort so that it first swaps the middle element into position high, and then runs the same partition. Run the sorted array again and compare the counters and depth.
+Try {50, 40, 30, 20, 10}. Does the middle pivot fix this input too?
+
 */
 #include<iostream>
 using namespace std;
