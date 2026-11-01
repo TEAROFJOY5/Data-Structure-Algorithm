@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 
-int count = 0;
+int totalArrangements = 0;
 
 char courses[4][30] =
 {
@@ -45,9 +45,9 @@ bool isSafe(int row, int col, int course)
 
 void display()
 {
-    count++;
+    totalArrangements++;
 
-    cout<<"\nArrangement "<<count<<endl;
+    cout<<"\nArrangement "<<totalArrangements<<endl;
 
     for(int i=0; i<4; i++)
     {
@@ -100,11 +100,11 @@ int main()
 {
     assignSeats(0);
 
-    if(count == 0)
+    if(totalArrangements == 0)
         cout<<"\nNo valid seating arrangement exists.";
 
     else
-        cout<<"\nTotal valid arrangements: "<<count;
+        cout<<"\nTotal valid arrangements: "<<totalArrangements;
 
     return 0;
 }
