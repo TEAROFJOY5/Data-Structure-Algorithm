@@ -60,7 +60,6 @@ void levelOrder(Node* root) {
     }
 }
 
-// Calculate height of a node
 int height(Node* root) {
 
     if (root == nullptr) {
@@ -88,7 +87,6 @@ int balanceFactor(Node* root) {
     return height(root->left) - height(root->right);
 }
 
-// Check ALL nodes for AVL violations
 bool checkAVL(Node* root) {
 
     if (root == nullptr) {
@@ -97,7 +95,6 @@ bool checkAVL(Node* root) {
 
     bool isAVL = true;
 
-    // Check current node
     int bf = balanceFactor(root);
 
     if (bf > 1 || bf < -1) {
@@ -108,19 +105,16 @@ bool checkAVL(Node* root) {
         isAVL = false;
     }
 
-    // Check left subtree
     bool leftAVL = checkAVL(root->left);
 
-    // Check right subtree
     bool rightAVL = checkAVL(root->right);
 
     return isAVL && leftAVL && rightAVL;
 }
 
-// Main function
 int main() {
 
-    // FIRST TREE
+
     int arr[] = {50,30,70,20,40,60,80,10,5};
 
     int size = sizeof(arr) / sizeof(arr[0]);
